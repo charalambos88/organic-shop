@@ -18,13 +18,15 @@
             </li>
           </ng-template>          
           <li ngbDropdown class="nav-item dropdown" 
-          *ngIf="auth.user$ | async as user;else anonymousUser">
+          *ngIf="appUser;else anonymousUser">
           <!-- user$ is observable, using async pull data and push to user-->
-          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome {{ user.displayName }}</a>
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome {{ appUser.name }}</a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
            <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
-           <a class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
-           <a class="dropdown-item" routerLink="/admin/products">Manage Products</a>
+           <ng-container *ngIf="appUser.isAdmin">
+             <a class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
+             <a class="dropdown-item" routerLink="/admin/products">Manage Products</a>
+           </ng-container>
            <a class="dropdown-item" (click)="logOut()">Log Out</a>
          </div>
        </li>
