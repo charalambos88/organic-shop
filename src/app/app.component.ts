@@ -16,13 +16,15 @@ export class AppComponent {
 		) {
 		// if subscribed then must de-subscribed sometime
 		auth.user$.subscribe(user =>{
-			//if user exist then
-			if (user) {
-				userService.save(user);
+			if(!user) return
+				//if user exist then
+			userService.save(user);
 
-				let returnUrl = localStorage.getItem('returnUrl');
-				router.navigateByUrl(returnUrl);
-			}
+			let returnUrl = localStorage.getItem('returnUrl');
+			if(!returnUrl) return;
+
+			localStorage.removeItem('returnUrl');
+			router.navigateByUrl(returnUrl);
 		});
 	}
 }
