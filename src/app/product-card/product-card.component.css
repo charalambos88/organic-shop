@@ -1,5 +1,12 @@
-.card{ margin-bottom: 30px }
-.card-text{padding: 0 20px 20px 20px}
-.card-title{padding: 0 20px 0 20px }
-.card-footer{padding:0;}
-.card-footer button { cursor: pointer;}
+
+.card { 
+  margin-bottom: 30px;
+}
+
+.card-footer {
+  padding: 0;
+}
+
+.card-footer button {
+  cursor: pointer;
+}

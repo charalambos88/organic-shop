@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from './../auth.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'app-login',
-	templateUrl: './login.component.html',
-	styleUrls: ['./login.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent{
+export class LoginComponent {
+  constructor(private auth: AuthService) { 
+  }
 
-	constructor(private auth: AuthService) { }
-
-	login(){
-		this.auth.login();
-	}
+  login() { 
+    this.auth.login();
+  }
 }
