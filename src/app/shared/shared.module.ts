@@ -12,9 +12,16 @@ import { UserService } from './services/user.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 
+import { FormsModule } from '@angular/forms'; 
+import { CustomFormsModule } from 'ng2-validation'; 
+import { DataTableModule } from 'angular-4-data-table';
+
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    CustomFormsModule,
+    DataTableModule,
   ],
   declarations: [
     ProductCardComponent,
@@ -22,7 +29,10 @@ import { AuthService } from './services/auth.service';
   ],
   exports: [
     ProductCardComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    FormsModule,
+    CustomFormsModule,
+    DataTableModule,
   ],
   providers: [
     AuthService,
